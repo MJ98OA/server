@@ -19,8 +19,6 @@ class PreguntasController {
     @GetMapping("getPreguntaRandom/{id}")
     fun getPokemonFavorito(@PathVariable id: String) : String {
 
-
-
         return if (id == pregunta.solucion)
             "cierto"+pregunta.toString()
         else
