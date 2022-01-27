@@ -11,5 +11,6 @@ class PreguntasRepository {
             Preguntas("Cual es la capital de Ecuador","Lima","El cairo","Ambato","Quito","D"),
             Preguntas("En que año fue la revolucion francesa","1769","1789","1987","1979","B")
         )
+
     }
 }

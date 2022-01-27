@@ -11,7 +11,9 @@ class PreguntasController {
 
     @GetMapping("getPreguntaRandom")
     fun getPreguntaRandom() : Preguntas {
+
         pregunta=PreguntasRepository.listaPreguntas.get(Random.nextInt(PreguntasRepository.listaPreguntas.size))
+
         return pregunta
 
     }
@@ -20,9 +22,9 @@ class PreguntasController {
     fun getPokemonFavorito(@PathVariable id: String) : String {
 
         return if (id == pregunta.solucion)
-            "cierto"+pregunta.toString()
+            "cierto"
         else
-            "Falso"+pregunta.toString()
+            "Falso"
 
     }
 
