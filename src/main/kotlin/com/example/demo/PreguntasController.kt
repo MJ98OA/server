@@ -7,12 +7,15 @@ import kotlin.random.Random
 class PreguntasController {
 
 
-     lateinit var pregunta:Preguntas
+
+    lateinit var pregunta:Preguntas
+    var idPregunta_Respuesta:Int=0
 
     @GetMapping("getPreguntaRandom")
     fun getPreguntaRandom() : Preguntas {
+        this.idPregunta_Respuesta=Random.nextInt(PreguntasRepository.listaPreguntas.size)
 
-        pregunta=PreguntasRepository.listaPreguntas.get(Random.nextInt(PreguntasRepository.listaPreguntas.size))
+        pregunta=PreguntasRepository.listaPreguntas.get(idPregunta_Respuesta)
 
         return pregunta
 
@@ -21,8 +24,9 @@ class PreguntasController {
     @GetMapping("getPreguntaRandom/{id}")
     fun getPokemonFavorito(@PathVariable id: String) : String {
 
-        return if (id == pregunta.solucion)
-            "cierto"
+        return if (PreguntasRepository.listaRespuestas.get(idPregunta_Respuesta).Solucion == id){
+            "Cierto"
+        }
         else
             "Falso"
 
